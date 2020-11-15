@@ -1,13 +1,14 @@
 package com.example.test.mapper;
 
 import com.example.test.bean.UserBean;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserMapper {
 
     //登录时信息核对
-    UserBean getInfo(String name, String password);
+    UserBean getInfo(@Param("name") String name, @Param("password")String password);
 
     //根据ID查询用户信息
     UserBean selectUserById(String id);

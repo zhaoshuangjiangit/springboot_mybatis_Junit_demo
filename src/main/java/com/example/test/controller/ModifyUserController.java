@@ -1,5 +1,6 @@
 package com.example.test.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.test.bean.UserBean;
 import com.example.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,7 @@ public class ModifyUserController {
         int flag = userService.dropUser(id);
         List<UserBean> userList = userService.queryAllUser();
         modelMap.addAttribute("userList",userList);
+        System.out.println("删除状态"+flag);
         if(flag == 1){
             return "users";
         }else {

@@ -1,13 +1,14 @@
 package com.example.test.service;
 
 import com.example.test.bean.UserBean;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserService {
 
     //登录时信息核对
-    UserBean loginIn(String name, String password);
+    UserBean loginIn(@Param("name") String name, @Param("password")String password);
 
     //根据ID查询用户信息
     UserBean queryUserById(String id);
